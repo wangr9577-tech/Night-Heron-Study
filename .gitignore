@@ -1,0 +1,19 @@
+# Python
+backend/.venv/
+backend/data/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Flutter
+app/build/
+app/.dart_tool/
+app/.flutter-plugins*
+app/.packages
+app/pubspec.lock
+app/windows/flutter/ephemeral/
+app/android/.gradle/
+
+# misc
+*.log
+tmp/

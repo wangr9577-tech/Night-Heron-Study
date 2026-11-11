@@ -1,1 +1,1 @@
-{analyzer: {exclude: [build/**, android/**, web/**]}}
+{analyzer: {exclude: [build/**, android/**, web/**, windows/**]}}

@@ -1,0 +1,493 @@
+{
+  "lesson": {
+    "lesson_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab",
+    "title": "方程与算术平均数",
+    "outline": [
+      {
+        "concept_id": "concept_b5ca3bd9570e443b86e56f8a3bae8c29",
+        "title": "一元一次方程",
+        "question_ids": [
+          "lesson_job_c718b767028c4c14b040a83bf35d32ab_q0"
+        ]
+      },
+      {
+        "concept_id": "concept_e2dd61e4d2a24915a5c4276d80e8e422",
+        "title": "算术平均数",
+        "question_ids": [
+          "lesson_job_c718b767028c4c14b040a83bf35d32ab_q1"
+        ]
+      }
+    ],
+    "pages": [
+      {
+        "page_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1",
+        "title": "一元一次方程",
+        "concept_ids": [
+          "concept_b5ca3bd9570e443b86e56f8a3bae8c29"
+        ],
+        "elements": [
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_e1",
+            "type": "text",
+            "text": "一元一次方程：只含一个未知数且未知数的次数为一的方程。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c2",
+                "page": 1,
+                "quote": "一元一次方程：只含一个未知数且未知数的次数为一的方程。一般形式为 ax + b = c，其中 a\n不为零。",
+                "start": 10,
+                "end": 63
+              }
+            ]
+          },
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_e2",
+            "type": "text",
+            "text": "一般形式为 ax + b = c，其中 a 不为零。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c2",
+                "page": 1,
+                "quote": "一元一次方程：只含一个未知数且未知数的次数为一的方程。一般形式为 ax + b = c，其中 a\n不为零。",
+                "start": 10,
+                "end": 63
+              }
+            ]
+          },
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_e3",
+            "type": "text",
+            "text": "解一元一次方程时，等式两边同时减去 b，再同时除以 a。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c3",
+                "page": 1,
+                "quote": "解一元一次方程时，等式两边同时减去 b，再同时除以 a。最后把得到的解代回原方程检\n验。",
+                "start": 65,
+                "end": 109
+              }
+            ]
+          }
+        ],
+        "narration_segments": [
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_s1",
+            "text": "一元一次方程：只含一个未知数且未知数的次数为一的方程。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_e1"
+            ]
+          },
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_s2",
+            "text": "一般形式为 ax + b = c，其中 a 不为零。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_e2"
+            ]
+          },
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_s3",
+            "text": "解一元一次方程时，等式两边同时减去 b，再同时除以 a。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p1_e3"
+            ]
+          }
+        ]
+      },
+      {
+        "page_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2",
+        "title": "一元一次方程",
+        "concept_ids": [
+          "concept_b5ca3bd9570e443b86e56f8a3bae8c29"
+        ],
+        "elements": [
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_e1",
+            "type": "text",
+            "text": "最后把得到的解代回原方程检验。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c3",
+                "page": 1,
+                "quote": "解一元一次方程时，等式两边同时减去 b，再同时除以 a。最后把得到的解代回原方程检\n验。",
+                "start": 65,
+                "end": 109
+              }
+            ]
+          },
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_e2",
+            "type": "text",
+            "text": "等式两边同时加上或减去同一个数，等式仍然成立。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c4",
+                "page": 1,
+                "quote": "等式两边同时加上或减去同一个数，等式仍然成立。等式两边同时乘以或除以同一个非零\n数，等式仍然成立。",
+                "start": 111,
+                "end": 160
+              }
+            ]
+          },
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_e3",
+            "type": "text",
+            "text": "等式两边同时乘以或除以同一个非零数，等式仍然成立。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c4",
+                "page": 1,
+                "quote": "等式两边同时加上或减去同一个数，等式仍然成立。等式两边同时乘以或除以同一个非零\n数，等式仍然成立。",
+                "start": 111,
+                "end": 160
+              }
+            ]
+          }
+        ],
+        "narration_segments": [
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_s1",
+            "text": "最后把得到的解代回原方程检验。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_e1"
+            ]
+          },
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_s2",
+            "text": "等式两边同时加上或减去同一个数，等式仍然成立。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_e2"
+            ]
+          },
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_s3",
+            "text": "等式两边同时乘以或除以同一个非零数，等式仍然成立。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p2_e3"
+            ]
+          }
+        ]
+      },
+      {
+        "page_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3",
+        "title": "算术平均数",
+        "concept_ids": [
+          "concept_e2dd61e4d2a24915a5c4276d80e8e422"
+        ],
+        "elements": [
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_e1",
+            "type": "text",
+            "text": "算术平均数：全部观测值的总和除以观测值个数，也称算术均值。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c6",
+                "page": 1,
+                "quote": "算术平均数：全部观测值的总和除以观测值个数，也称算术均值。",
+                "start": 171,
+                "end": 200
+              }
+            ]
+          },
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_e2",
+            "type": "text",
+            "text": "算术平均数描述数据的集中位置。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c7",
+                "page": 1,
+                "quote": "算术平均数描述数据的集中位置。计算时需要保留所有观测值，并准确计算样本个数。",
+                "start": 202,
+                "end": 240
+              }
+            ]
+          },
+          {
+            "element_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_e3",
+            "type": "text",
+            "text": "计算时需要保留所有观测值，并准确计算样本个数。",
+            "source_refs": [
+              {
+                "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+                "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c7",
+                "page": 1,
+                "quote": "算术平均数描述数据的集中位置。计算时需要保留所有观测值，并准确计算样本个数。",
+                "start": 202,
+                "end": 240
+              }
+            ]
+          }
+        ],
+        "narration_segments": [
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_s1",
+            "text": "算术平均数：全部观测值的总和除以观测值个数，也称算术均值。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_e1"
+            ]
+          },
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_s2",
+            "text": "算术平均数描述数据的集中位置。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_e2"
+            ]
+          },
+          {
+            "segment_id": "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_s3",
+            "text": "计算时需要保留所有观测值，并准确计算样本个数。",
+            "highlight_element_ids": [
+              "lesson_job_c718b767028c4c14b040a83bf35d32ab_p3_e3"
+            ]
+          }
+        ]
+      }
+    ],
+    "generation_method": "source_structured",
+    "created_at": "2026-11-03T03:22:49.588118+00:00",
+    "id": "lesson_job_c718b767028c4c14b040a83bf35d32ab",
+    "pptx_filename": "lesson_job_c718b767028c4c14b040a83bf35d32ab.pptx"
+  },
+  "attempt": {
+    "attempt_id": "attempt_be7142e14c4740908bfacf328f7897b1",
+    "question_id": "variant_job_dd6de0a122fb4773a65a8eaf552cd71a_0",
+    "concept_ids": [
+      "concept_b5ca3bd9570e443b86e56f8a3bae8c29"
+    ],
+    "status": "graded",
+    "score": 1.0,
+    "hint_records": [],
+    "solution_viewed": false,
+    "grading_rationale": "按数值与绝对容差校验。",
+    "source_task_id": "A-task-variant",
+    "id": "attempt_be7142e14c4740908bfacf328f7897b1",
+    "submitted_answer": "7",
+    "review_id": null,
+    "exam_id": null,
+    "practice_session_id": "session_c7ebd9ef530841f7a3768f8df66e28bf",
+    "recent_repeat": false,
+    "created_at": "2026-11-03T03:24:53.956231+00:00",
+    "request_hash": "4f5f0a716e72461f7e29cf9c3f68ffcdea27f8ae39e9f31939345767124841a7",
+    "grading_method": "numeric_exact",
+    "graded_at": "2026-11-03T03:24:53.956891+00:00",
+    "rubric": [
+      "等式两边同时减去 24，得 9x = 63。",
+      "两边同时除以非零系数 9，得 x = 7。"
+    ],
+    "answer": "7",
+    "explanation": "等式两边同时减去 24，得 9x = 63。\n两边同时除以非零系数 9，得 x = 7。\n代回检验：9 × 7 + 24 = 87。",
+    "source_refs": [
+      {
+        "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+        "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c1",
+        "page": 1,
+        "quote": "# 一元一次方程",
+        "start": 0,
+        "end": 8
+      },
+      {
+        "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+        "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c2",
+        "page": 1,
+        "quote": "一元一次方程：只含一个未知数且未知数的次数为一的方程。一般形式为 ax + b = c，其中 a\n不为零。",
+        "start": 10,
+        "end": 63
+      },
+      {
+        "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+        "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c3",
+        "page": 1,
+        "quote": "解一元一次方程时，等式两边同时减去 b，再同时除以 a。最后把得到的解代回原方程检\n验。",
+        "start": 65,
+        "end": 109
+      },
+      {
+        "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+        "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c4",
+        "page": 1,
+        "quote": "等式两边同时加上或减去同一个数，等式仍然成立。等式两边同时乘以或除以同一个非零\n数，等式仍然成立。",
+        "start": 111,
+        "end": 160
+      }
+    ],
+    "evidence_weight": 1.0
+  },
+  "candidate": {
+    "candidate_id": "learn:concept_b5ca3bd9570e443b86e56f8a3bae8c29",
+    "type": "concept",
+    "target_id": "concept_b5ca3bd9570e443b86e56f8a3bae8c29",
+    "estimated_minutes": 10,
+    "reason": "作答证据显示需要巩固",
+    "suggested_due_at": "2026-11-03T03:24:54.373804+00:00"
+  },
+  "event": {
+    "event_id": "attempt_451556329e794b65b674e810b0fee92d:submitted",
+    "user_id": "user-demo",
+    "course_id": "course-demo",
+    "source_task_id": "A-task-exam",
+    "event_type": "practice_submitted",
+    "result": {
+      "attempt_id": "attempt_451556329e794b65b674e810b0fee92d",
+      "question_id": "exam_job_cdd1ad890c3c44c18a18dfc8a5dba41e_q1",
+      "task_requirement_met": null
+    },
+    "occurred_at": "2026-11-03T03:24:53.721926+00:00"
+  },
+  "job": {
+    "job_id": "job_c718b767028c4c14b040a83bf35d32ab",
+    "status": "succeeded",
+    "progress": 100,
+    "result_ref": {
+      "type": "lesson",
+      "id": "lesson_job_c718b767028c4c14b040a83bf35d32ab"
+    },
+    "error_code": null,
+    "error_message": null,
+    "retryable": false,
+    "attempts": 1,
+    "created_at": "2026-11-03T03:22:49.519541+00:00",
+    "updated_at": "2026-11-03T03:22:52.521062+00:00"
+  },
+  "errors": [
+    {
+      "method": "POST",
+      "path": "/mistakes/mistake_25c31830a312455bb45708786e0b5dbf/variants",
+      "request": {
+        "count": 1
+      },
+      "status_code": 409,
+      "response": {
+        "error": {
+          "code": "MISTAKE_NOT_CONFIRMED",
+          "message": "请先校对错题",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/materials",
+      "request": null,
+      "status_code": 415,
+      "response": {
+        "error": {
+          "code": "UNSUPPORTED_FILE",
+          "message": "支持 PDF/PPT/PPTX/图片/TXT/MD",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/knowledge/concepts",
+      "request": {
+        "title": "校验",
+        "source_refs": [
+          {
+            "material_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3",
+            "chunk_id": "mat_9d1dc675f2af1650fa457bd7fbcb7da3_p1_c1",
+            "page": 1,
+            "quote": "假引用",
+            "start": 0,
+            "end": 8
+          }
+        ]
+      },
+      "status_code": 422,
+      "response": {
+        "error": {
+          "code": "INVALID_SOURCE",
+          "message": "引用文字与原文不一致",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/tutoring/ask",
+      "request": {
+        "question": "提示",
+        "question_id": "exam_job_cdd1ad890c3c44c18a18dfc8a5dba41e_q1",
+        "mode": "hint"
+      },
+      "status_code": 422,
+      "response": {
+        "error": {
+          "code": "SESSION_REQUIRED",
+          "message": "题目提示必须绑定练习会话",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/lessons",
+      "request": {
+        "concept_ids": [
+          "missing"
+        ]
+      },
+      "status_code": 404,
+      "response": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "对象不存在或无访问权限",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/exams",
+      "request": {
+        "blueprint_id": "missing"
+      },
+      "status_code": 404,
+      "response": {
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "对象不存在或无访问权限",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/attempts",
+      "request": {
+        "question_id": "exam_job_cdd1ad890c3c44c18a18dfc8a5dba41e_q1",
+        "answer": "0",
+        "practice_session_id": "missing"
+      },
+      "status_code": 422,
+      "response": {
+        "error": {
+          "code": "IDEMPOTENCY_REQUIRED",
+          "message": "作答提交需要 Idempotency-Key",
+          "retryable": false
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/learning-events?cursor=-1",
+      "request": null,
+      "status_code": 422,
+      "response": {
+        "error": {
+          "code": "INVALID_CURSOR",
+          "message": "游标必须为有效的非负序号",
+          "retryable": false
+        }
+      }
+    }
+  ]
+}

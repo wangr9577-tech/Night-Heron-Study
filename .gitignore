@@ -10,10 +10,36 @@ app/build/
 app/.dart_tool/
 app/.flutter-plugins*
 app/.packages
-app/pubspec.lock
 app/windows/flutter/ephemeral/
 app/android/.gradle/
 
 # misc
 *.log
 tmp/
+
+# Local integration runtime and private course material
+.venv/
+.ruff_cache/
+data/
+output/
+.tools/
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+.env
+.env.*
+!.env.example
+app/android/local.properties
+app/android/key.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.apk
+*.aab
+*.exe
+*.dll
+*.msi

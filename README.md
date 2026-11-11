@@ -1,39 +1,75 @@
-# 啄知 AI
+# 啄知 AI · Night Heron Study
 
-本项目按《啄知AI_模块任务拆分与双人分工方案》推进甲负责的 Flutter App 与后端。当前仍在开发和联调中，不能视为方案全部完成。
+啄知 AI 是面向大学生课程学习的 Flutter Android 与 Windows 桌面应用。本机模式免注册，课程资料、试卷、专注记录和宠物成长保存在设备上；配置模型后，App 直接调用用户选择的 AI 服务进行问答和资料出题。既有服务器模式通过 FastAPI 与 SQLite 后端访问学习服务。
 
-## 目前状态
+本机模式的操作路径、当前安装包及验证边界见 [本地 AI 组卷验收](docs/10_2026-11-10_本地AI组卷验收.md)。服务器模式的构建与验证见 [本地测试报告](docs/04_本地测试报告.md)；各模块的本机覆盖范围见 [Android 本地化改造记录](docs/09_Android本地化改造记录.md)。
 
-- `backend/app/core.py`、`main.py`：FastAPI 与 SQLite 基础、注册登录、课程及成员、手动任务、排程和调整。接口以 `contracts/CONTRACTS.md` 为目标；候选推荐和学习快照是标注 `is_demo` 的演示数据。
-- `backend/app/extra.py`：宠物、奖励、语音及通知接口；实际能力与限制见源码和最终审核报告。默认演示语音不等于真实语音合成或识别。
-- `backend/app/demo_b.py`：仅供联调的示例资料、图谱、课程、问答、练习等部分乙侧接口；数据不代表真实课程或学习成果。试卷等乙侧能力未完整实现。
-- `backend/app/event_feed.py`：可配置的乙侧学习事件读取适配器；默认未配置，演示事件接口为空且不会发奖。
-- `app/`：Flutter 客户端，具体页面与后端联调状态见最终审核报告。
-- `contracts/`：拟定接口契约；真实乙侧接口尚需双方联调确认。
+Windows 版的运行、构建和验收见 [Windows 桌面版](docs/12_Windows桌面版开发与验收.md)。
 
-## 运行后端
+## 项目结构
 
-使用 Python 3.10 或更新版本，在 `backend` 目录创建虚拟环境并安装依赖：
-
-```powershell
-py -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```text
+app/                 Flutter Android / Windows 客户端
+app/lib/             本机资料、AI 接入、专注统计、宠物及可选服务器界面
+app/windows/         Windows 原生窗口与系统 OCR
+app/test/            Flutter 单元与组件测试
+app/integration_test/ Android / Windows 运行测试和合成资料
+backend/app/         A：用户、课程、任务、伴学、积分及应用组装
+backend/engine/      B：学习引擎基础与数据库
+backend/{materials,knowledge,tutoring,lessons,exams,mistakes,assessment,review}/
+                     B：资料、教学、练习、判分与复习模块
+contracts/           甲乙接口与共享数据模型
+tests/               学习引擎和跨模块测试
+backend/tests/       A 端后端测试
+scripts/             开发和测试脚本
+docs/                协作、运行、演示及测试记录
 ```
 
-接口文档为 `http://127.0.0.1:8000/docs`。用户需要自行注册；当前没有预置演示账号。SQLite 默认存储在 `backend/data/zhi.db`，也可通过 `ZHI_DB_PATH` 指定路径。已有 `.venv` 如指向不存在的 Python，请先重新创建。
+`backend/app/main.py` 组装 A 后端和 B 学习引擎；A 管理账号、课程权限、任务与奖励，B 管理资料、题目、作答证据和学习状态。数据与生成文件保存在本地，不作为源码提交。
 
-要联调真实学习事件，在启动后端前设置 `ZHI_B_BASE_URL` 为可信乙服务的 API 前缀，例如 `$env:ZHI_B_BASE_URL='https://example.org/api/v1'`。服务端将当前用户的 Bearer 令牌转发给该服务，故乙服务必须信任同一令牌、按用户过滤事件并提供契约中的稳定分页游标；仅对可信服务配置该地址。除本机回环地址外必须使用 HTTPS。用户调用 `POST /api/v1/rewards/consume-events` 手动拉取一页，游标和事件去重记录持久化，末页会安全重读。尚无后台自动拉取，真实乙服务和令牌互通尚未验证。不要将项目内演示服务配置为真实事件源。
+## 开始体验
 
-测试：`.\.venv\Scripts\python.exe -m pytest -q`。受限 Windows 沙箱中如临时目录或事件循环不可用，请使用可正常运行事件循环的环境，并将 pytest `--basetemp` 指向可写目录。
+本机模式直接打开 App 即可使用，无需启动自建后端。首次没有服务器会话时进入本地体验；已有服务器会话可点击顶部手机图标进入。AI 生成操作需要在模型设置中填写兼容 Chat Completions 的服务地址、模型和 API Key。资料只在用户主动选择并点击发送时交给所配置服务，数据不会自动同步至既有服务器，也不会在手机和电脑之间自动同步。
 
-## 运行 App
-
-在安装 Flutter SDK 并取得依赖后，进入 `app` 目录执行：
+开发环境为 Flutter 3.47.9 / Dart 3.13.7（本机已验证版本），以及目标平台的 Android SDK 或 Visual Studio C++ / Windows SDK。`app/pubspec.lock` 与 `uv.lock` 一并提交，用于固定已验证的依赖。
 
 ```powershell
-flutter pub get
-flutter run --dart-define=API_BASE=http://127.0.0.1:8000
+cd app
+flutter pub get --enforce-lockfile
+flutter test
+flutter build apk --debug
+# 在已配置 C++ 工具链的 Windows 上：
+flutter build windows --release
 ```
 
-Android 模拟器或真机访问开发电脑后端时，`API_BASE` 必须改为该设备可访问的地址；电脑的 `127.0.0.1` 并不指向手机。发布前应为服务配置 HTTPS、持久化部署及生产环境安全设置。
+Windows 构建依赖及可选的本机辅助脚本见 [Windows 桌面版](docs/12_Windows桌面版开发与验收.md)。源码仓库不包含安装包、数据库、个人资料或 API Key；本地验收报告中的 `output/` 路径仅指开发机生成的文件，其他开发者需自行构建或运行测试生成。
+
+使用既有服务器模式时：
+
+1. 按 [Android 本地运行指南](docs/03_Android本地运行与功能演示.md) 启动后端及 Android 模拟器或设备。
+2. 按指南导入本地学习资料，体验资料解析、课程讲解、练习和学习安排。
+3. 对照 [本地测试报告](docs/04_本地测试报告.md) 查看已经验证的范围及尚待验证的事项。
+
+开发者还可查看 [B1–B8 功能与验收边界](docs/07_B部分范围与验收.md)、[Android 隔离自动化](docs/06_Android隔离自动化.md) 和 [课程审核权限管理](docs/06_课程审核权限.md)。
+
+宠物的图集格式与可选生成服务参见 [迷你宠物图集与生成](docs/08_迷你宠物图集与生成.md)；文字排版与动画的参考仓库见 [技术选型](docs/08_排版与宠物技术选型.md)。
+
+项目使用的 KNN 讲义取自本机学习目录，仅供本地体验，原始文件不包含在仓库内。
+
+## 能力边界
+
+服务器模式的学习内容和作答评价通过 B 引擎处理。伴学聊天和口语反馈的具体实现及限制请查看 [本地测试报告](docs/04_本地测试报告.md)；演示回复不应表述为已接入外部大模型。本地体验的用户可自行配置兼容模型服务，真实服务是否可用须独立验证。Android 语音识别、朗读和通知的实际表现还依赖设备与权限。
+
+## 开发验证
+
+可选后端使用 Python 3.11+ 和 `uv`，在仓库根目录运行：
+
+```powershell
+uv sync --extra dev --locked
+uv run pytest
+uv run uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+```
+
+无个人资料时也可使用 `examples/inputs/basic.md` 和测试中的合成 PDF / 图片验证功能。`scripts/seed_knn_demo.py --source <本机PDF路径>` 仅用于自愿导入已有讲义，原件不随仓库上传。
+
+更多后端测试、Android 构建及环境变量见 [Android 本地运行指南](docs/03_Android本地运行与功能演示.md)。原 [甲方开发阶段审核报告](docs/02_交付审核报告.md) 保留 2026-11-06 时的历史状态，不代表当前联调结果。

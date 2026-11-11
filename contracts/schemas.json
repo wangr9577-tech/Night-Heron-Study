@@ -1,0 +1,2103 @@
+{
+  "SourceRef": {
+    "properties": {
+      "material_id": {
+        "title": "Material Id",
+        "type": "string"
+      },
+      "chunk_id": {
+        "title": "Chunk Id",
+        "type": "string"
+      },
+      "page": {
+        "title": "Page",
+        "type": "integer"
+      },
+      "quote": {
+        "title": "Quote",
+        "type": "string"
+      },
+      "start": {
+        "title": "Start",
+        "type": "integer"
+      },
+      "end": {
+        "title": "End",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "material_id",
+      "chunk_id",
+      "page",
+      "quote",
+      "start",
+      "end"
+    ],
+    "title": "SourceRef",
+    "type": "object"
+  },
+  "ErrorEnvelope": {
+    "properties": {
+      "error": {
+        "additionalProperties": true,
+        "title": "Error",
+        "type": "object"
+      }
+    },
+    "required": [
+      "error"
+    ],
+    "title": "ErrorEnvelope",
+    "type": "object"
+  },
+  "Job": {
+    "properties": {
+      "job_id": {
+        "title": "Job Id",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "queued",
+          "running",
+          "succeeded",
+          "failed"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "progress": {
+        "title": "Progress",
+        "type": "integer"
+      },
+      "result_ref": {
+        "anyOf": [
+          {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Result Ref"
+      },
+      "error_code": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Error Code"
+      },
+      "error_message": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Error Message"
+      },
+      "retryable": {
+        "title": "Retryable",
+        "type": "boolean"
+      },
+      "attempts": {
+        "title": "Attempts",
+        "type": "integer"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      },
+      "updated_at": {
+        "title": "Updated At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "job_id",
+      "status",
+      "progress",
+      "retryable",
+      "attempts",
+      "created_at",
+      "updated_at"
+    ],
+    "title": "Job",
+    "type": "object"
+  },
+  "MaterialCorrection": {
+    "additionalProperties": false,
+    "properties": {
+      "chunk_id": {
+        "title": "Chunk Id",
+        "type": "string"
+      },
+      "text": {
+        "maxLength": 12000,
+        "minLength": 1,
+        "title": "Text",
+        "type": "string"
+      }
+    },
+    "required": [
+      "chunk_id",
+      "text"
+    ],
+    "title": "MaterialCorrection",
+    "type": "object"
+  },
+  "GraphExtract": {
+    "additionalProperties": false,
+    "properties": {
+      "material_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "minItems": 1,
+        "title": "Material Ids",
+        "type": "array"
+      }
+    },
+    "required": [
+      "material_ids"
+    ],
+    "title": "GraphExtract",
+    "type": "object"
+  },
+  "ConceptCreate": {
+    "$defs": {
+      "SourceRef": {
+        "properties": {
+          "material_id": {
+            "title": "Material Id",
+            "type": "string"
+          },
+          "chunk_id": {
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "title": "End",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "material_id",
+          "chunk_id",
+          "page",
+          "quote",
+          "start",
+          "end"
+        ],
+        "title": "SourceRef",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "title": {
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Title",
+        "type": "string"
+      },
+      "description": {
+        "default": "",
+        "maxLength": 5000,
+        "title": "Description",
+        "type": "string"
+      },
+      "source_refs": {
+        "items": {
+          "$ref": "#/$defs/SourceRef"
+        },
+        "maxItems": 30,
+        "minItems": 1,
+        "title": "Source Refs",
+        "type": "array"
+      }
+    },
+    "required": [
+      "title",
+      "source_refs"
+    ],
+    "title": "ConceptCreate",
+    "type": "object"
+  },
+  "ConceptPatch": {
+    "$defs": {
+      "SourceRef": {
+        "properties": {
+          "material_id": {
+            "title": "Material Id",
+            "type": "string"
+          },
+          "chunk_id": {
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "title": "End",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "material_id",
+          "chunk_id",
+          "page",
+          "quote",
+          "start",
+          "end"
+        ],
+        "title": "SourceRef",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "title": {
+        "anyOf": [
+          {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Title"
+      },
+      "description": {
+        "anyOf": [
+          {
+            "maxLength": 5000,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Description"
+      },
+      "source_refs": {
+        "anyOf": [
+          {
+            "items": {
+              "$ref": "#/$defs/SourceRef"
+            },
+            "maxItems": 30,
+            "minItems": 1,
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Source Refs"
+      }
+    },
+    "title": "ConceptPatch",
+    "type": "object"
+  },
+  "EdgeCreate": {
+    "additionalProperties": false,
+    "properties": {
+      "from_id": {
+        "title": "From Id",
+        "type": "string"
+      },
+      "to_id": {
+        "title": "To Id",
+        "type": "string"
+      },
+      "type": {
+        "enum": [
+          "prerequisite",
+          "related"
+        ],
+        "title": "Type",
+        "type": "string"
+      }
+    },
+    "required": [
+      "from_id",
+      "to_id",
+      "type"
+    ],
+    "title": "EdgeCreate",
+    "type": "object"
+  },
+  "EdgePatch": {
+    "additionalProperties": false,
+    "properties": {
+      "from_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "From Id"
+      },
+      "to_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "To Id"
+      },
+      "type": {
+        "anyOf": [
+          {
+            "enum": [
+              "prerequisite",
+              "related"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Type"
+      }
+    },
+    "title": "EdgePatch",
+    "type": "object"
+  },
+  "Search": {
+    "additionalProperties": false,
+    "properties": {
+      "query": {
+        "maxLength": 2000,
+        "minLength": 1,
+        "title": "Query",
+        "type": "string"
+      },
+      "limit": {
+        "default": 5,
+        "maximum": 20,
+        "minimum": 1,
+        "title": "Limit",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "query"
+    ],
+    "title": "Search",
+    "type": "object"
+  },
+  "Ask": {
+    "additionalProperties": false,
+    "properties": {
+      "question": {
+        "maxLength": 2000,
+        "minLength": 1,
+        "title": "Question",
+        "type": "string"
+      },
+      "mode": {
+        "default": "explain",
+        "enum": [
+          "explain",
+          "socratic",
+          "hint",
+          "solution"
+        ],
+        "title": "Mode",
+        "type": "string"
+      },
+      "hint_level": {
+        "default": 1,
+        "maximum": 3,
+        "minimum": 1,
+        "title": "Hint Level",
+        "type": "integer"
+      },
+      "question_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Question Id"
+      },
+      "practice_session_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Practice Session Id"
+      }
+    },
+    "required": [
+      "question"
+    ],
+    "title": "Ask",
+    "type": "object"
+  },
+  "QuestionSourceView": {
+    "additionalProperties": false,
+    "properties": {
+      "practice_session_id": {
+        "title": "Practice Session Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "practice_session_id"
+    ],
+    "title": "QuestionSourceView",
+    "type": "object"
+  },
+  "LessonGenerate": {
+    "additionalProperties": false,
+    "properties": {
+      "title": {
+        "default": "知识点课程",
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Title",
+        "type": "string"
+      },
+      "concept_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 12,
+        "minItems": 1,
+        "title": "Concept Ids",
+        "type": "array"
+      }
+    },
+    "required": [
+      "concept_ids"
+    ],
+    "title": "LessonGenerate",
+    "type": "object"
+  },
+  "Position": {
+    "additionalProperties": false,
+    "properties": {
+      "page_id": {
+        "title": "Page Id",
+        "type": "string"
+      },
+      "segment_id": {
+        "title": "Segment Id",
+        "type": "string"
+      },
+      "offset_seconds": {
+        "default": 0,
+        "maximum": 86400,
+        "minimum": 0,
+        "title": "Offset Seconds",
+        "type": "number"
+      },
+      "source_task_id": {
+        "anyOf": [
+          {
+            "maxLength": 200,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Source Task Id"
+      }
+    },
+    "required": [
+      "page_id",
+      "segment_id"
+    ],
+    "title": "Position",
+    "type": "object"
+  },
+  "QuestionCreate": {
+    "$defs": {
+      "SourceRef": {
+        "properties": {
+          "material_id": {
+            "title": "Material Id",
+            "type": "string"
+          },
+          "chunk_id": {
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "title": "End",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "material_id",
+          "chunk_id",
+          "page",
+          "quote",
+          "start",
+          "end"
+        ],
+        "title": "SourceRef",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "kind": {
+        "enum": [
+          "single_choice",
+          "numeric",
+          "short_answer",
+          "cloze"
+        ],
+        "title": "Kind",
+        "type": "string"
+      },
+      "prompt": {
+        "maxLength": 6000,
+        "minLength": 1,
+        "title": "Prompt",
+        "type": "string"
+      },
+      "options": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "title": "Options",
+        "type": "object"
+      },
+      "answer": {
+        "maxLength": 3000,
+        "minLength": 1,
+        "title": "Answer",
+        "type": "string"
+      },
+      "accepted_answers": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 30,
+        "title": "Accepted Answers",
+        "type": "array"
+      },
+      "rubric": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "title": "Rubric",
+        "type": "array"
+      },
+      "concept_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "minItems": 1,
+        "title": "Concept Ids",
+        "type": "array"
+      },
+      "source_refs": {
+        "items": {
+          "$ref": "#/$defs/SourceRef"
+        },
+        "maxItems": 20,
+        "minItems": 1,
+        "title": "Source Refs",
+        "type": "array"
+      },
+      "explanation": {
+        "maxLength": 6000,
+        "minLength": 1,
+        "title": "Explanation",
+        "type": "string"
+      },
+      "initial_difficulty": {
+        "default": "medium",
+        "enum": [
+          "easy",
+          "medium",
+          "hard"
+        ],
+        "title": "Initial Difficulty",
+        "type": "string"
+      },
+      "tolerance": {
+        "default": 1e-06,
+        "maximum": 0.1,
+        "minimum": 0,
+        "title": "Tolerance",
+        "type": "number"
+      }
+    },
+    "required": [
+      "kind",
+      "prompt",
+      "answer",
+      "concept_ids",
+      "source_refs",
+      "explanation"
+    ],
+    "title": "QuestionCreate",
+    "type": "object"
+  },
+  "BlueprintSlot": {
+    "additionalProperties": false,
+    "properties": {
+      "concept_id": {
+        "title": "Concept Id",
+        "type": "string"
+      },
+      "count": {
+        "maximum": 20,
+        "minimum": 1,
+        "title": "Count",
+        "type": "integer"
+      },
+      "kind": {
+        "default": "cloze",
+        "enum": [
+          "cloze",
+          "numeric"
+        ],
+        "title": "Kind",
+        "type": "string"
+      },
+      "difficulty": {
+        "default": "medium",
+        "enum": [
+          "easy",
+          "medium",
+          "hard"
+        ],
+        "title": "Difficulty",
+        "type": "string"
+      },
+      "points": {
+        "default": 10,
+        "exclusiveMinimum": 0,
+        "maximum": 100,
+        "title": "Points",
+        "type": "number"
+      }
+    },
+    "required": [
+      "concept_id",
+      "count"
+    ],
+    "title": "BlueprintSlot",
+    "type": "object"
+  },
+  "BlueprintCreate": {
+    "$defs": {
+      "BlueprintSlot": {
+        "additionalProperties": false,
+        "properties": {
+          "concept_id": {
+            "title": "Concept Id",
+            "type": "string"
+          },
+          "count": {
+            "maximum": 20,
+            "minimum": 1,
+            "title": "Count",
+            "type": "integer"
+          },
+          "kind": {
+            "default": "cloze",
+            "enum": [
+              "cloze",
+              "numeric"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "difficulty": {
+            "default": "medium",
+            "enum": [
+              "easy",
+              "medium",
+              "hard"
+            ],
+            "title": "Difficulty",
+            "type": "string"
+          },
+          "points": {
+            "default": 10,
+            "exclusiveMinimum": 0,
+            "maximum": 100,
+            "title": "Points",
+            "type": "number"
+          }
+        },
+        "required": [
+          "concept_id",
+          "count"
+        ],
+        "title": "BlueprintSlot",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "title": {
+        "default": "仿真练习卷",
+        "maxLength": 100,
+        "minLength": 1,
+        "title": "Title",
+        "type": "string"
+      },
+      "slots": {
+        "items": {
+          "$ref": "#/$defs/BlueprintSlot"
+        },
+        "maxItems": 20,
+        "minItems": 1,
+        "title": "Slots",
+        "type": "array"
+      },
+      "duration_minutes": {
+        "default": 45,
+        "maximum": 300,
+        "minimum": 1,
+        "title": "Duration Minutes",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "slots"
+    ],
+    "title": "BlueprintCreate",
+    "type": "object"
+  },
+  "ExamAnalyze": {
+    "additionalProperties": false,
+    "properties": {
+      "material_id": {
+        "title": "Material Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "material_id"
+    ],
+    "title": "ExamAnalyze",
+    "type": "object"
+  },
+  "ExamGenerate": {
+    "additionalProperties": false,
+    "properties": {
+      "blueprint_id": {
+        "title": "Blueprint Id",
+        "type": "string"
+      },
+      "seed": {
+        "default": 42,
+        "maximum": 2147483647,
+        "minimum": 0,
+        "title": "Seed",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "blueprint_id"
+    ],
+    "title": "ExamGenerate",
+    "type": "object"
+  },
+  "MistakeCapture": {
+    "additionalProperties": false,
+    "properties": {
+      "material_id": {
+        "title": "Material Id",
+        "type": "string"
+      },
+      "page": {
+        "default": 1,
+        "minimum": 1,
+        "title": "Page",
+        "type": "integer"
+      },
+      "original_answer": {
+        "default": "",
+        "maxLength": 6000,
+        "title": "Original Answer",
+        "type": "string"
+      },
+      "concept_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 20,
+        "title": "Concept Ids",
+        "type": "array"
+      }
+    },
+    "required": [
+      "material_id"
+    ],
+    "title": "MistakeCapture",
+    "type": "object"
+  },
+  "MistakeConfirm": {
+    "$defs": {
+      "QuestionCreate": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "single_choice",
+              "numeric",
+              "short_answer",
+              "cloze"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "prompt": {
+            "maxLength": 6000,
+            "minLength": 1,
+            "title": "Prompt",
+            "type": "string"
+          },
+          "options": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "title": "Options",
+            "type": "object"
+          },
+          "answer": {
+            "maxLength": 3000,
+            "minLength": 1,
+            "title": "Answer",
+            "type": "string"
+          },
+          "accepted_answers": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 30,
+            "title": "Accepted Answers",
+            "type": "array"
+          },
+          "rubric": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "title": "Rubric",
+            "type": "array"
+          },
+          "concept_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Concept Ids",
+            "type": "array"
+          },
+          "source_refs": {
+            "items": {
+              "$ref": "#/$defs/SourceRef"
+            },
+            "maxItems": 20,
+            "minItems": 1,
+            "title": "Source Refs",
+            "type": "array"
+          },
+          "explanation": {
+            "maxLength": 6000,
+            "minLength": 1,
+            "title": "Explanation",
+            "type": "string"
+          },
+          "initial_difficulty": {
+            "default": "medium",
+            "enum": [
+              "easy",
+              "medium",
+              "hard"
+            ],
+            "title": "Initial Difficulty",
+            "type": "string"
+          },
+          "tolerance": {
+            "default": 1e-06,
+            "maximum": 0.1,
+            "minimum": 0,
+            "title": "Tolerance",
+            "type": "number"
+          }
+        },
+        "required": [
+          "kind",
+          "prompt",
+          "answer",
+          "concept_ids",
+          "source_refs",
+          "explanation"
+        ],
+        "title": "QuestionCreate",
+        "type": "object"
+      },
+      "SourceRef": {
+        "properties": {
+          "material_id": {
+            "title": "Material Id",
+            "type": "string"
+          },
+          "chunk_id": {
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "title": "End",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "material_id",
+          "chunk_id",
+          "page",
+          "quote",
+          "start",
+          "end"
+        ],
+        "title": "SourceRef",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "question": {
+        "$ref": "#/$defs/QuestionCreate"
+      },
+      "error_cause": {
+        "default": "待诊断",
+        "maxLength": 1000,
+        "title": "Error Cause",
+        "type": "string"
+      }
+    },
+    "required": [
+      "question"
+    ],
+    "title": "MistakeConfirm",
+    "type": "object"
+  },
+  "MistakeTranscription": {
+    "additionalProperties": false,
+    "properties": {
+      "text": {
+        "maxLength": 6000,
+        "minLength": 1,
+        "title": "Text",
+        "type": "string"
+      }
+    },
+    "required": [
+      "text"
+    ],
+    "title": "MistakeTranscription",
+    "type": "object"
+  },
+  "MistakeDiagnosis": {
+    "additionalProperties": false,
+    "properties": {
+      "error_cause": {
+        "maxLength": 1000,
+        "minLength": 1,
+        "title": "Error Cause",
+        "type": "string"
+      }
+    },
+    "required": [
+      "error_cause"
+    ],
+    "title": "MistakeDiagnosis",
+    "type": "object"
+  },
+  "VariantGenerate": {
+    "additionalProperties": false,
+    "properties": {
+      "count": {
+        "default": 2,
+        "maximum": 10,
+        "minimum": 1,
+        "title": "Count",
+        "type": "integer"
+      },
+      "seed": {
+        "default": 42,
+        "maximum": 2147483647,
+        "minimum": 0,
+        "title": "Seed",
+        "type": "integer"
+      }
+    },
+    "title": "VariantGenerate",
+    "type": "object"
+  },
+  "AttemptSubmit": {
+    "additionalProperties": false,
+    "properties": {
+      "question_id": {
+        "title": "Question Id",
+        "type": "string"
+      },
+      "answer": {
+        "maxLength": 6000,
+        "title": "Answer",
+        "type": "string"
+      },
+      "practice_session_id": {
+        "title": "Practice Session Id",
+        "type": "string"
+      },
+      "source_task_id": {
+        "anyOf": [
+          {
+            "maxLength": 200,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Source Task Id"
+      },
+      "review_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Review Id"
+      },
+      "exam_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Exam Id"
+      }
+    },
+    "required": [
+      "question_id",
+      "answer",
+      "practice_session_id"
+    ],
+    "title": "AttemptSubmit",
+    "type": "object"
+  },
+  "ManualGrade": {
+    "additionalProperties": false,
+    "properties": {
+      "score": {
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Score",
+        "type": "number"
+      },
+      "rationale": {
+        "maxLength": 6000,
+        "minLength": 10,
+        "title": "Rationale",
+        "type": "string"
+      }
+    },
+    "required": [
+      "score",
+      "rationale"
+    ],
+    "title": "ManualGrade",
+    "type": "object"
+  },
+  "ReviewRate": {
+    "additionalProperties": false,
+    "properties": {
+      "attempt_id": {
+        "title": "Attempt Id",
+        "type": "string"
+      },
+      "quality": {
+        "maximum": 5,
+        "minimum": 0,
+        "title": "Quality",
+        "type": "integer"
+      }
+    },
+    "required": [
+      "attempt_id",
+      "quality"
+    ],
+    "title": "ReviewRate",
+    "type": "object"
+  },
+  "Candidate": {
+    "properties": {
+      "candidate_id": {
+        "title": "Candidate Id",
+        "type": "string"
+      },
+      "type": {
+        "enum": [
+          "concept",
+          "lesson",
+          "question",
+          "review"
+        ],
+        "title": "Type",
+        "type": "string"
+      },
+      "target_id": {
+        "title": "Target Id",
+        "type": "string"
+      },
+      "estimated_minutes": {
+        "title": "Estimated Minutes",
+        "type": "integer"
+      },
+      "reason": {
+        "title": "Reason",
+        "type": "string"
+      },
+      "suggested_due_at": {
+        "title": "Suggested Due At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "candidate_id",
+      "type",
+      "target_id",
+      "estimated_minutes",
+      "reason",
+      "suggested_due_at"
+    ],
+    "title": "Candidate",
+    "type": "object"
+  },
+  "LearningEvent": {
+    "properties": {
+      "event_id": {
+        "title": "Event Id",
+        "type": "string"
+      },
+      "user_id": {
+        "title": "User Id",
+        "type": "string"
+      },
+      "course_id": {
+        "title": "Course Id",
+        "type": "string"
+      },
+      "source_task_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Source Task Id"
+      },
+      "event_type": {
+        "enum": [
+          "practice_submitted",
+          "practice_graded",
+          "review_completed"
+        ],
+        "title": "Event Type",
+        "type": "string"
+      },
+      "result": {
+        "additionalProperties": true,
+        "title": "Result",
+        "type": "object"
+      },
+      "occurred_at": {
+        "title": "Occurred At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "event_id",
+      "user_id",
+      "course_id",
+      "source_task_id",
+      "event_type",
+      "result",
+      "occurred_at"
+    ],
+    "title": "LearningEvent",
+    "type": "object"
+  },
+  "LearningSnapshot": {
+    "$defs": {
+      "Candidate": {
+        "properties": {
+          "candidate_id": {
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "concept",
+              "lesson",
+              "question",
+              "review"
+            ],
+            "title": "Type",
+            "type": "string"
+          },
+          "target_id": {
+            "title": "Target Id",
+            "type": "string"
+          },
+          "estimated_minutes": {
+            "title": "Estimated Minutes",
+            "type": "integer"
+          },
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "suggested_due_at": {
+            "title": "Suggested Due At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "type",
+          "target_id",
+          "estimated_minutes",
+          "reason",
+          "suggested_due_at"
+        ],
+        "title": "Candidate",
+        "type": "object"
+      }
+    },
+    "properties": {
+      "user_id": {
+        "title": "User Id",
+        "type": "string"
+      },
+      "course_id": {
+        "title": "Course Id",
+        "type": "string"
+      },
+      "state_version": {
+        "title": "State Version",
+        "type": "integer"
+      },
+      "concept_states": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Concept States",
+        "type": "array"
+      },
+      "candidates": {
+        "items": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "title": "Candidates",
+        "type": "array"
+      },
+      "generated_at": {
+        "title": "Generated At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "user_id",
+      "course_id",
+      "state_version",
+      "concept_states",
+      "candidates",
+      "generated_at"
+    ],
+    "title": "LearningSnapshot",
+    "type": "object"
+  },
+  "Output": {
+    "additionalProperties": true,
+    "properties": {},
+    "title": "Output",
+    "type": "object"
+  },
+  "ContentElement": {
+    "$defs": {
+      "SourceRef": {
+        "properties": {
+          "material_id": {
+            "title": "Material Id",
+            "type": "string"
+          },
+          "chunk_id": {
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "title": "End",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "material_id",
+          "chunk_id",
+          "page",
+          "quote",
+          "start",
+          "end"
+        ],
+        "title": "SourceRef",
+        "type": "object"
+      }
+    },
+    "additionalProperties": true,
+    "properties": {
+      "element_id": {
+        "title": "Element Id",
+        "type": "string"
+      },
+      "type": {
+        "const": "text",
+        "title": "Type",
+        "type": "string"
+      },
+      "text": {
+        "title": "Text",
+        "type": "string"
+      },
+      "source_refs": {
+        "items": {
+          "$ref": "#/$defs/SourceRef"
+        },
+        "title": "Source Refs",
+        "type": "array"
+      }
+    },
+    "required": [
+      "element_id",
+      "type",
+      "text",
+      "source_refs"
+    ],
+    "title": "ContentElement",
+    "type": "object"
+  },
+  "NarrationSegment": {
+    "additionalProperties": true,
+    "properties": {
+      "segment_id": {
+        "title": "Segment Id",
+        "type": "string"
+      },
+      "text": {
+        "title": "Text",
+        "type": "string"
+      },
+      "highlight_element_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Highlight Element Ids",
+        "type": "array"
+      }
+    },
+    "required": [
+      "segment_id",
+      "text",
+      "highlight_element_ids"
+    ],
+    "title": "NarrationSegment",
+    "type": "object"
+  },
+  "LessonPage": {
+    "$defs": {
+      "ContentElement": {
+        "additionalProperties": true,
+        "properties": {
+          "element_id": {
+            "title": "Element Id",
+            "type": "string"
+          },
+          "type": {
+            "const": "text",
+            "title": "Type",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "source_refs": {
+            "items": {
+              "$ref": "#/$defs/SourceRef"
+            },
+            "title": "Source Refs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "element_id",
+          "type",
+          "text",
+          "source_refs"
+        ],
+        "title": "ContentElement",
+        "type": "object"
+      },
+      "NarrationSegment": {
+        "additionalProperties": true,
+        "properties": {
+          "segment_id": {
+            "title": "Segment Id",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "highlight_element_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Highlight Element Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "segment_id",
+          "text",
+          "highlight_element_ids"
+        ],
+        "title": "NarrationSegment",
+        "type": "object"
+      },
+      "SourceRef": {
+        "properties": {
+          "material_id": {
+            "title": "Material Id",
+            "type": "string"
+          },
+          "chunk_id": {
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "title": "End",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "material_id",
+          "chunk_id",
+          "page",
+          "quote",
+          "start",
+          "end"
+        ],
+        "title": "SourceRef",
+        "type": "object"
+      }
+    },
+    "additionalProperties": true,
+    "properties": {
+      "page_id": {
+        "title": "Page Id",
+        "type": "string"
+      },
+      "title": {
+        "title": "Title",
+        "type": "string"
+      },
+      "concept_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Concept Ids",
+        "type": "array"
+      },
+      "elements": {
+        "items": {
+          "$ref": "#/$defs/ContentElement"
+        },
+        "title": "Elements",
+        "type": "array"
+      },
+      "narration_segments": {
+        "items": {
+          "$ref": "#/$defs/NarrationSegment"
+        },
+        "title": "Narration Segments",
+        "type": "array"
+      }
+    },
+    "required": [
+      "page_id",
+      "title",
+      "concept_ids",
+      "elements",
+      "narration_segments"
+    ],
+    "title": "LessonPage",
+    "type": "object"
+  },
+  "GenerationWarning": {
+    "additionalProperties": true,
+    "properties": {
+      "concept_id": {
+        "title": "Concept Id",
+        "type": "string"
+      },
+      "code": {
+        "title": "Code",
+        "type": "string"
+      },
+      "message": {
+        "title": "Message",
+        "type": "string"
+      }
+    },
+    "required": [
+      "concept_id",
+      "code",
+      "message"
+    ],
+    "title": "GenerationWarning",
+    "type": "object"
+  },
+  "Lesson": {
+    "$defs": {
+      "ContentElement": {
+        "additionalProperties": true,
+        "properties": {
+          "element_id": {
+            "title": "Element Id",
+            "type": "string"
+          },
+          "type": {
+            "const": "text",
+            "title": "Type",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "source_refs": {
+            "items": {
+              "$ref": "#/$defs/SourceRef"
+            },
+            "title": "Source Refs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "element_id",
+          "type",
+          "text",
+          "source_refs"
+        ],
+        "title": "ContentElement",
+        "type": "object"
+      },
+      "GenerationWarning": {
+        "additionalProperties": true,
+        "properties": {
+          "concept_id": {
+            "title": "Concept Id",
+            "type": "string"
+          },
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "concept_id",
+          "code",
+          "message"
+        ],
+        "title": "GenerationWarning",
+        "type": "object"
+      },
+      "LessonPage": {
+        "additionalProperties": true,
+        "properties": {
+          "page_id": {
+            "title": "Page Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "concept_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Concept Ids",
+            "type": "array"
+          },
+          "elements": {
+            "items": {
+              "$ref": "#/$defs/ContentElement"
+            },
+            "title": "Elements",
+            "type": "array"
+          },
+          "narration_segments": {
+            "items": {
+              "$ref": "#/$defs/NarrationSegment"
+            },
+            "title": "Narration Segments",
+            "type": "array"
+          }
+        },
+        "required": [
+          "page_id",
+          "title",
+          "concept_ids",
+          "elements",
+          "narration_segments"
+        ],
+        "title": "LessonPage",
+        "type": "object"
+      },
+      "NarrationSegment": {
+        "additionalProperties": true,
+        "properties": {
+          "segment_id": {
+            "title": "Segment Id",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "highlight_element_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Highlight Element Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "segment_id",
+          "text",
+          "highlight_element_ids"
+        ],
+        "title": "NarrationSegment",
+        "type": "object"
+      },
+      "SourceRef": {
+        "properties": {
+          "material_id": {
+            "title": "Material Id",
+            "type": "string"
+          },
+          "chunk_id": {
+            "title": "Chunk Id",
+            "type": "string"
+          },
+          "page": {
+            "title": "Page",
+            "type": "integer"
+          },
+          "quote": {
+            "title": "Quote",
+            "type": "string"
+          },
+          "start": {
+            "title": "Start",
+            "type": "integer"
+          },
+          "end": {
+            "title": "End",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "material_id",
+          "chunk_id",
+          "page",
+          "quote",
+          "start",
+          "end"
+        ],
+        "title": "SourceRef",
+        "type": "object"
+      }
+    },
+    "additionalProperties": true,
+    "properties": {
+      "lesson_id": {
+        "title": "Lesson Id",
+        "type": "string"
+      },
+      "title": {
+        "title": "Title",
+        "type": "string"
+      },
+      "outline": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Outline",
+        "type": "array"
+      },
+      "pages": {
+        "items": {
+          "$ref": "#/$defs/LessonPage"
+        },
+        "title": "Pages",
+        "type": "array"
+      },
+      "generation_method": {
+        "title": "Generation Method",
+        "type": "string"
+      },
+      "generation_warnings": {
+        "items": {
+          "$ref": "#/$defs/GenerationWarning"
+        },
+        "title": "Generation Warnings",
+        "type": "array"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      }
+    },
+    "required": [
+      "lesson_id",
+      "title",
+      "outline",
+      "pages",
+      "generation_method",
+      "created_at"
+    ],
+    "title": "Lesson",
+    "type": "object"
+  },
+  "AttemptResult": {
+    "additionalProperties": true,
+    "properties": {
+      "attempt_id": {
+        "title": "Attempt Id",
+        "type": "string"
+      },
+      "question_id": {
+        "title": "Question Id",
+        "type": "string"
+      },
+      "concept_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Concept Ids",
+        "type": "array"
+      },
+      "status": {
+        "enum": [
+          "submitted",
+          "pending_review",
+          "graded"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "score": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Score"
+      },
+      "hint_records": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Hint Records",
+        "type": "array"
+      },
+      "solution_viewed": {
+        "title": "Solution Viewed",
+        "type": "boolean"
+      },
+      "evidence_exclusion_reason": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Evidence Exclusion Reason"
+      },
+      "grading_rationale": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Grading Rationale"
+      },
+      "source_task_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Source Task Id"
+      }
+    },
+    "required": [
+      "attempt_id",
+      "question_id",
+      "concept_ids",
+      "status",
+      "score",
+      "hint_records",
+      "solution_viewed"
+    ],
+    "title": "AttemptResult",
+    "type": "object"
+  },
+  "EventPage": {
+    "$defs": {
+      "LearningEvent": {
+        "properties": {
+          "event_id": {
+            "title": "Event Id",
+            "type": "string"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "course_id": {
+            "title": "Course Id",
+            "type": "string"
+          },
+          "source_task_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Task Id"
+          },
+          "event_type": {
+            "enum": [
+              "practice_submitted",
+              "practice_graded",
+              "review_completed"
+            ],
+            "title": "Event Type",
+            "type": "string"
+          },
+          "result": {
+            "additionalProperties": true,
+            "title": "Result",
+            "type": "object"
+          },
+          "occurred_at": {
+            "title": "Occurred At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_id",
+          "user_id",
+          "course_id",
+          "source_task_id",
+          "event_type",
+          "result",
+          "occurred_at"
+        ],
+        "title": "LearningEvent",
+        "type": "object"
+      }
+    },
+    "properties": {
+      "items": {
+        "items": {
+          "$ref": "#/$defs/LearningEvent"
+        },
+        "title": "Items",
+        "type": "array"
+      },
+      "next_cursor": {
+        "title": "Next Cursor",
+        "type": "string"
+      },
+      "has_more": {
+        "title": "Has More",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "items",
+      "next_cursor",
+      "has_more"
+    ],
+    "title": "EventPage",
+    "type": "object"
+  }
+}
